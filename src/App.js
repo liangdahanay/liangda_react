@@ -1,9 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {browserName} from "detect-browser";
 import {UAParser} from 'ua-parser-js';
-
-const findChromeVersion = require("find-chrome-version")
 
 function detectPlatform() {
     const uaParser = new UAParser()
@@ -33,20 +30,17 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
-                <p>
-                    Edit <code>src/App.js</code> and save to reload.
-                </p>
                 <h2>Browser Info</h2>
                 <p>Name: {browserInfo.browserName}</p>
                 <p>Platform: {browserInfo.platform}</p>
                 <p>Device: {browserInfo.device}</p>
                 <a
                     className="App-link"
-                    href="https://reactjs.org"
+                    href="https://liangda-android-play.herokuapp.com/mshop"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    Learn React
+                    SSO with Amazon
                 </a>
             </header>
         </div>
