@@ -26,6 +26,7 @@ function detectPlatform() {
 
 function App() {
     const browserInfo = detectPlatform();
+    console.log(window.navigator.userAgentData);
     return (
         <div className="App">
             <header className="App-header">
@@ -34,6 +35,7 @@ function App() {
                 <p>Name: {browserInfo.browserName}</p>
                 <p>Platform: {browserInfo.platform}</p>
                 <p>Device: {browserInfo.device}</p>
+                <p>{JSON.stringify(window.navigator.userAgentData)}</p>
                 <a
                     className="App-link"
                     href="https://liangda-android-play.herokuapp.com/mshop"
