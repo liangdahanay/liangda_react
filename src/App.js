@@ -1,34 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
-import {useEffect} from "react";
+import {browserName} from "detect-browser";
+import {UAParser} from 'ua-parser-js';
 
 const findChromeVersion = require("find-chrome-version")
-const { detect } = require('detect-browser');
-const browser = detect();
+
+function detectPlatform() {
+    const uaParser = new UAParser()
+    const platform = uaParser.getOS().name;
+    const browserName = uaParser.getBrowser().name;
+    const device = uaParser.getDevice().type;
+    return {platform, browserName, device}
+    // const userAgentData = window.navigator.userAgentData;
+    // let platform;
+    // let browserName;
+    // let isMobile
+    // if (userAgentData) {
+    //     platform = userAgentData.platform;
+    //     isMobile = userAgentData.mobile;
+    //
+    //     const brands = userAgentData.brands;
+    //     console.log(brands)
+    // }
+    //
+    // return {platform, isMobile, browserName}
+
+}
 
 function App() {
-    const example = async () => {
-        const chromeVersion = await findChromeVersion()
-        console.log(`Your Chrome version is ${chromeVersion}`)
-    }
-    if (browser) {
-        console.log(browser.name);
-        console.log(browser.version);
-        console.log(browser.os);
-        console.log(browser.type)
-        console.log(browser.type)
-
-    }
-
-    // useEffect(() => {
-    //     // Create an scoped async function in the hook
-    //     async function anyNameFunction() {
-    //         await example();
-    //     }
-    //     // Execute the created function directly
-    //     anyNameFunction();
-    // }, []);
-
+    const browserInfo = detectPlatform();
     return (
         <div className="App">
             <header className="App-header">
@@ -37,11 +37,9 @@ function App() {
                     Edit <code>src/App.js</code> and save to reload.
                 </p>
                 <h2>Browser Info</h2>
-                <p>Name: {browser.name}</p>
-                <p>Version: {browser.version}</p>
-                <p>OS: {browser.os}</p>
-                <p>Type: {browser.type}</p>
-                <p>Bot: {browser.bot}</p>
+                <p>Name: {browserInfo.browserName}</p>
+                <p>Platform: {browserInfo.platform}</p>
+                <p>Device: {browserInfo.device}</p>
                 <a
                     className="App-link"
                     href="https://reactjs.org"
