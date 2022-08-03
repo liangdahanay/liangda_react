@@ -1,6 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import {UAParser} from 'ua-parser-js';
+import sha256 from 'crypto-js/sha256';
+import hmacSHA512 from 'crypto-js/hmac-sha512';
+import Base64 from 'crypto-js/enc-base64';
 
 function detectPlatform() {
     const uaParser = new UAParser()
@@ -8,25 +11,12 @@ function detectPlatform() {
     const browserName = uaParser.getBrowser().name;
     const device = uaParser.getDevice().type;
     return {platform, browserName, device}
-    // const userAgentData = window.navigator.userAgentData;
-    // let platform;
-    // let browserName;
-    // let isMobile
-    // if (userAgentData) {
-    //     platform = userAgentData.platform;
-    //     isMobile = userAgentData.mobile;
-    //
-    //     const brands = userAgentData.brands;
-    //     console.log(brands)
-    // }
-    //
-    // return {platform, isMobile, browserName}
-
 }
 
 function App() {
     const browserInfo = detectPlatform();
     console.log(window.navigator.userAgentData);
+    const returnTo = window.location.href;
     return (
         <div className="App">
             <header className="App-header">
@@ -37,7 +27,7 @@ function App() {
                 <p>Device: {browserInfo.device}</p>
                 <a
                     className="App-link"
-                    href="https://liangda-android-play.herokuapp.com/mshop"
+                    href={`https://liangda-android-play.herokuapp.com/mshop?browser_name=${encodeURIComponent(browserInfo.browserName)}&challenge=${encodeURIComponent(sha256(Math.random()))}&returnTo=${encodeURIComponent(returnTo)}`}
                 >
                     SSO with Amazon
                 </a>
