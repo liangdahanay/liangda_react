@@ -17,7 +17,7 @@ function App() {
     const browserInfo = detectPlatform();
     console.log(window.navigator.userAgentData);
     const returnTo = window.location.href;
-    const consentUrl = "https://liangda-android-play.herokuapp.com/consent";
+    const consentUrl = "liangda-android-play.herokuapp.com/consent";
     return (
         <div className="App">
             <header className="App-header">
