@@ -17,6 +17,7 @@ function App() {
     const browserInfo = detectPlatform();
     console.log(window.navigator.userAgentData);
     const returnTo = window.location.href;
+    const consentUrl = "https://liangda-android-play.herokuapp.com/consent";
     return (
         <div className="App">
             <header className="App-header">
@@ -27,7 +28,7 @@ function App() {
                 <p>Device: {browserInfo.device}</p>
                 <a
                     className="App-link"
-                    href={`https://liangda-android-play.herokuapp.com/mshop?browser_name=${encodeURIComponent(browserInfo.browserName)}&challenge=${encodeURIComponent(sha256(Math.random()))}&returnTo=${encodeURIComponent(returnTo)}`}
+                    href={`https://liangda-android-play.herokuapp.com/mshop?browser_name=${encodeURIComponent(browserInfo.browserName)}&challenge=${encodeURIComponent(sha256(Math.random()))}&returnTo=${encodeURIComponent(consentUrl)}`}
                 >
                     SSO with Amazon
                 </a>
