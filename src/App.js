@@ -36,7 +36,7 @@ function App() {
                     className="App-link"
                     href={`https://www.amazon.com/earlyaccess`}
                 >
-                    SSO with Amazon
+                    MShop Deep link
                 </a>
             </header>
         </div>
