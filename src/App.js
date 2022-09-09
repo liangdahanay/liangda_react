@@ -28,7 +28,7 @@ function App() {
                 <p>Device: {browserInfo.device}</p>
                 <a
                     className="App-link"
-                    href={`https://liangda-android-play.herokuapp.com/mshop?browser_name=${encodeURIComponent(browserInfo.browserName)}&challenge=${encodeURIComponent(sha256(Math.random()))}&returnTo=${encodeURIComponent(consentUrl)}`}
+                    href={`https://liangda-android-play.herokuapp.com/mshop?version=2.7&account_pool=foo&browser=chrome&code_challenge=ABCDEFG&return_url=www.amazon.com&application_name=apay&application_context=purchase&language=en_US&merchant_id=XYZ&client_id=abc&consent_ui=Consent&signin_url=www.amazon.com%2Fsignin`}
                 >
                     SSO with Amazon
                 </a>
@@ -63,6 +63,12 @@ function App() {
                     href={`https://www.amazon.com/somerandompage`}
                 >
                     MShop Deep link random invalid page
+                </a>
+                <a
+                    className="App-link"
+                    href={`https://mobileidentity.ackapp.com/atb/mshop/v1?consent_ui=Consent`}
+                >
+                    Test
                 </a>
             </header>
         </div>
