@@ -32,6 +32,12 @@ function App() {
                 >
                     SSO with Amazon
                 </a>
+                <a
+                    className="App-link"
+                    href={`https://www.amazon.com/earlyaccess`}
+                >
+                    SSO with Amazon
+                </a>
             </header>
         </div>
     );
