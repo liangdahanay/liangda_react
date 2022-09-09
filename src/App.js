@@ -36,7 +36,33 @@ function App() {
                     className="App-link"
                     href={`https://www.amazon.com/earlyaccess`}
                 >
-                    MShop Deep link
+                    MShop Deep link 1
+                </a>
+                <a
+                    className="App-link"
+                    href={`https://www.amazon.com/diadascriancas`}
+                >
+                    MShop Deep link 2
+                </a>
+
+                <a
+                    className="App-link"
+                    href={`https://www.amazon.com/dn/dashboard`}
+                >
+                    MShop Deep link 3
+                </a>
+
+                <a
+                    className="App-link"
+                    href={`https://www.amazon.com`}
+                >
+                    MShop Deep link home page
+                </a>
+                <a
+                    className="App-link"
+                    href={`https://www.amazon.com/somerandompage`}
+                >
+                    MShop Deep link random invalid page
                 </a>
             </header>
         </div>
