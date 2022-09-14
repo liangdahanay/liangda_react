@@ -34,7 +34,7 @@ function App() {
                 </a>
                 <a
                     className="App-link"
-                    href={`https://dev-dsk-bakkerp-1e-cf8783d7.us-east-1.amazon.com:9443/a/c/atb/consent?version=2.7&account_pool=foo&browser=chrome&identity_sso_code_challenge=ABCDEFG&return_url=https://www.amazon.com&application_name=apay&application_context=purchase&language=en_US&merchant_id=XYZ&client_id=abc&consent_ui=NoConsent&signin_url=https://www.amazon.com/signin`}
+                    href={`https://liangda-android-play.herokuapp.com/mshop?version=2.7&account_pool=foo&browser=chrome&identity_sso_code_challenge=ABCDEFG&return_url=https://www.amazon.com&application_name=apay&application_context=purchase&language=en_US&merchant_id=XYZ&client_id=abc&consent_ui=NoConsent&signin_url=https://www.amazon.com/signin`}
                 >
                     SSO with Amazon no consent
                 </a>
