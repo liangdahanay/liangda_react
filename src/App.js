@@ -49,9 +49,9 @@ function App() {
                 </a>
                 <a
                     className="App-link"
-                    href={`https://www.amazon.com/earlyaccess`}
+                    href={`https://link.mobileauth.amazon.com/atb/mshop/v1`}
                 >
-                    MShop Deep link 1
+                    MAP Deep link 1
                 </a>
                 <a
                     className="App-link"
