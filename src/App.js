@@ -24,10 +24,6 @@ function App() {
     const returnTo = window.location.href;
     const consentUrl = "https://liangda-android-play.herokuapp.com/consent";
 
-    window.setTimeout(() => {
-        window.location= `https://liangda-android-play.herokuapp.com/mshop?version=2.7&account_pool=foo&browser=chrome&identity_sso_code_challenge=ABCDEFG&return_url=https://www.amazon.com&application_name=apay&application_context=purchase&language=en_US&merchant_id=XYZ&client_id=abc&consent_ui=NoConsent&signin_url=https://www.amazon.com/signin`
-    }, 10000);
-    
     return (
         <div className="App">
             <header className="App-header">
