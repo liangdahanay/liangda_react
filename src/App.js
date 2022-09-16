@@ -51,7 +51,13 @@ function App() {
                     className="App-link"
                     href={`https://link.mobileauth.amazon.com/atb/mshop/v1`}
                 >
-                    MAP Deep link 1
+                    MAP Deep link link.mobileauth.amazon.com
+                </a>
+                <a
+                    className="App-link"
+                    href={`https://www.amazon.com/atb/mshop/v1`}
+                >
+                    MAP Deep link www.amazon.com
                 </a>
                 <a
                     className="App-link"
@@ -78,12 +84,6 @@ function App() {
                     href={`https://www.amazon.com/somerandompage`}
                 >
                     MShop Deep link random invalid page
-                </a>
-                <a
-                    className="App-link"
-                    href={`https://mobileidentity.ackapp.com/atb/mshop/v1?consent_ui=Consent`}
-                >
-                    Test
                 </a>
             </header>
         </div>
