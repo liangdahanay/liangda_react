@@ -36,6 +36,7 @@ function App() {
                 <p>Name: {browserInfo.browserName}</p>
                 <p>Platform: {browserInfo.platform}</p>
                 <p>Device: {browserInfo.device}</p>
+                <p>userAgent: {window.navigator.userAgent}</p>
                 <button onClick={redirectToApp}>
                     redirect 
                 </button>
