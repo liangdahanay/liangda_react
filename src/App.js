@@ -13,6 +13,16 @@ function detectPlatform() {
     return {platform, browserName, device}
 }
 
+function isCCT() {
+    if (window.chrome && window.chrome.customTabs) {
+        // This is a Chrome Custom Tab
+        return 'ChromeCustomTab';
+    } else {
+        // This is the Chrome browser
+        return 'Not ChromeCustomTab';
+    }
+}
+
 const redirectToApp = () => {
     window.dispatchEvent(new Event('pagehide'))
     //window.location= `https://liangda-android-play.herokuapp.com/mshop?version=1&account_pool=foo&browser=chrome&identity_sso_code_challenge=ABCDEFG&return_url=https://www.amazon.com&application_name=apay&application_context=purchase&language=en_US&merchant_id=XYZ&client_id=abc&consent_ui=NoConsent&signin_url=https://www.amazon.com/signin`
@@ -20,13 +30,10 @@ const redirectToApp = () => {
 
 function App() {
     const browserInfo = detectPlatform();
+    const cct = isCCT();
     console.log(window.navigator.userAgentData);
     const returnTo = window.location.href;
     const consentUrl = "https://liangda-android-play.herokuapp.com/consent";
-
-    window.addEventListener('pagehide', () => {
-        console.log('SB SB pagehide');
-    }, true);
 
     return (
         <div className="App">
@@ -36,6 +43,7 @@ function App() {
                 <p>Name: {browserInfo.browserName}</p>
                 <p>Platform: {browserInfo.platform}</p>
                 <p>Device: {browserInfo.device}</p>
+                <p>CCT: {cct}</p>
                 <p>userAgent: {window.navigator.userAgent}</p>
                 <button onClick={redirectToApp}>
                     redirect 
