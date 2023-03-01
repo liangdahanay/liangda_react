@@ -14,12 +14,12 @@ function detectPlatform() {
 }
 
 function isCCT() {
-    if (window.chrome && window.chrome.app && window.chrome.app.window && !window.chrome.webstore) {
-        // This is the Chrome browser
-        return 'Not ChromeCustomTab';
-      } else {
+    if (document.referrer.includes('android-app://')) {
         // This is a Chrome Custom Tab
         return 'ChromeCustomTab';
+      } else {
+        // This is the Chrome browser
+        return 'Not ChromeCustomTab';
     }
 }
 
