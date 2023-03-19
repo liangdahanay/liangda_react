@@ -6,7 +6,7 @@ import hmacSHA512 from 'crypto-js/hmac-sha512';
 import Base64 from 'crypto-js/enc-base64';
 
 function detectPlatform() {
-    const uaParser = new UAParser()
+    const uaParser = new UAParser('Amazon.com/24.19.0.100 (Android/13/sdk_gphone64_arm64)')
     const platform = uaParser.getOS().name;
     const browserName = uaParser.getBrowser().name;
     const device = uaParser.getDevice().type;
