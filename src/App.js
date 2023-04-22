@@ -6,7 +6,7 @@ import hmacSHA512 from 'crypto-js/hmac-sha512';
 import Base64 from 'crypto-js/enc-base64';
 
 function detectPlatform(userAgent) {
-    const uaParser = new UAParser()
+    const uaParser = new UAParser(userAgent)
     const platform = uaParser.getOS().name;
     const browserName = uaParser.getBrowser().name;
     const device = uaParser.getDevice().type;
@@ -22,6 +22,9 @@ function App() {
     const browserInfoAndroidCNEPWebview = detectPlatform('Amazon.com/24.19.0.100 (Android/13/sdk_gphone64_arm64)');
     const browserInfoAndroidSignInWebview = detectPlatform('Mozilla/5.0 (Linux; Android 13; sdk_gphone64_arm64 Build/TPB3.220513.017; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/105.0.5195.136 Mobile Safari/537.36');
     const browserInfoiOSebview = detectPlatform('Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148');
+    
+    const browserInfoAndroidBrowser = detectPlatform('Mozilla/5.0 (Linux; Android 11; Pixel 2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Mobile Safari/537.36');
+    const browserInfoiOSBrowser = detectPlatform('Mozilla/5.0 (iPhone; CPU iPhone OS 16_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.2 Mobile/15E148 Safari/604.1');
 
     console.log(window.navigator.userAgentData);
     const consentUrl = "https://liangda-android-play.herokuapp.com/consent";
@@ -30,20 +33,31 @@ function App() {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
-                <h2>Browser Info CNEP webview</h2>
+                <h2>Browser Info Android CNEP webview</h2>
                 <p>Name: {browserInfoAndroidCNEPWebview.browserName}</p>
                 <p>Platform: {browserInfoAndroidCNEPWebview.platform}</p>
                 <p>Device: {browserInfoAndroidCNEPWebview.device}</p>
 
-                <h2>Browser Info signin webview</h2>
+                <h2>Browser Info Android signin webview</h2>
                 <p>Name: {browserInfoAndroidSignInWebview.browserName}</p>
                 <p>Platform: {browserInfoAndroidSignInWebview.platform}</p>
                 <p>Device: {browserInfoAndroidSignInWebview.device}</p>
 
-                <h2>Browser Info webview</h2>
+                <h2>Browser Info iOS webview</h2>
                 <p>Name: {browserInfoiOSebview.browserName}</p>
                 <p>Platform: {browserInfoiOSebview.platform}</p>
                 <p>Device: {browserInfoiOSebview.device}</p>
+
+                <h2>Browser Info Android browser</h2>
+                <p>Name: {browserInfoAndroidBrowser.browserName}</p>
+                <p>Platform: {browserInfoAndroidBrowser.platform}</p>
+                <p>Device: {browserInfoAndroidBrowser.device}</p>
+
+                <h2>Browser Info iOS browser</h2>
+                <p>Name: {browserInfoiOSBrowser.browserName}</p>
+                <p>Platform: {browserInfoiOSBrowser.platform}</p>
+                <p>Device: {browserInfoiOSBrowser.device}</p>
+
 
                 <a
                     className="App-link"
