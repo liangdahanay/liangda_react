@@ -10,7 +10,8 @@ function detectPlatform(userAgent) {
     const platform = uaParser.getOS().name;
     const browserName = uaParser.getBrowser().name;
     const device = uaParser.getDevice().type;
-    return {platform, browserName, device}
+    const engine = uaParser.getEngine().name;
+    return {platform, browserName, device, engine}
 }
 
 const redirectToApp = () => {
@@ -37,26 +38,31 @@ function App() {
                 <p>Name: {browserInfoAndroidCNEPWebview.browserName}</p>
                 <p>Platform: {browserInfoAndroidCNEPWebview.platform}</p>
                 <p>Device: {browserInfoAndroidCNEPWebview.device}</p>
+                <p>Engine: {browserInfoAndroidCNEPWebview.engine}</p>
 
                 <h2>Browser Info Android signin webview</h2>
                 <p>Name: {browserInfoAndroidSignInWebview.browserName}</p>
                 <p>Platform: {browserInfoAndroidSignInWebview.platform}</p>
                 <p>Device: {browserInfoAndroidSignInWebview.device}</p>
+                <p>Engine: {browserInfoAndroidSignInWebview.engine}</p>
 
                 <h2>Browser Info iOS webview</h2>
                 <p>Name: {browserInfoiOSebview.browserName}</p>
                 <p>Platform: {browserInfoiOSebview.platform}</p>
                 <p>Device: {browserInfoiOSebview.device}</p>
+                <p>Engine: {browserInfoiOSebview.engine}</p>
 
                 <h2>Browser Info Android browser</h2>
                 <p>Name: {browserInfoAndroidBrowser.browserName}</p>
                 <p>Platform: {browserInfoAndroidBrowser.platform}</p>
                 <p>Device: {browserInfoAndroidBrowser.device}</p>
+                <p>Engine: {browserInfoAndroidBrowser.engine}</p>
 
                 <h2>Browser Info iOS browser</h2>
                 <p>Name: {browserInfoiOSBrowser.browserName}</p>
                 <p>Platform: {browserInfoiOSBrowser.platform}</p>
                 <p>Device: {browserInfoiOSBrowser.device}</p>
+                <p>Engine: {browserInfoiOSBrowser.engine}</p>
 
 
                 <a
