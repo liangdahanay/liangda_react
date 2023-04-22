@@ -5,22 +5,12 @@ import sha256 from 'crypto-js/sha256';
 import hmacSHA512 from 'crypto-js/hmac-sha512';
 import Base64 from 'crypto-js/enc-base64';
 
-function detectPlatform() {
+function detectPlatform(userAgent) {
     const uaParser = new UAParser()
     const platform = uaParser.getOS().name;
     const browserName = uaParser.getBrowser().name;
     const device = uaParser.getDevice().type;
     return {platform, browserName, device}
-}
-
-function isCCT() {
-    if (document.referrer.includes('android-app://')) {
-        // This is a Chrome Custom Tab
-        return 'ChromeCustomTab';
-      } else {
-        // This is the Chrome browser
-        return 'Not ChromeCustomTab';
-    }
 }
 
 const redirectToApp = () => {
@@ -29,25 +19,32 @@ const redirectToApp = () => {
 }
 
 function App() {
-    const browserInfo = detectPlatform();
-    const cct = isCCT();
+    const browserInfoAndroidCNEPWebview = detectPlatform('Amazon.com/24.19.0.100 (Android/13/sdk_gphone64_arm64)');
+    const browserInfoAndroidSignInWebview = detectPlatform('Mozilla/5.0 (Linux; Android 13; sdk_gphone64_arm64 Build/TPB3.220513.017; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/105.0.5195.136 Mobile Safari/537.36');
+    const browserInfoiOSebview = detectPlatform('Mozilla/5.0 (iPhone; CPU iPhone OS 15_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148');
+
     console.log(window.navigator.userAgentData);
-    const returnTo = window.location.href;
     const consentUrl = "https://liangda-android-play.herokuapp.com/consent";
 
     return (
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo"/>
-                <h2>Browser Info</h2>
-                <p>Name: {browserInfo.browserName}</p>
-                <p>Platform: {browserInfo.platform}</p>
-                <p>Device: {browserInfo.device}</p>
-                <p>CCT: {cct}</p>
-                <p>userAgent: {window.navigator.userAgent}</p>
-                <button onClick={redirectToApp}>
-                    redirect 
-                </button>
+                <h2>Browser Info CNEP webview</h2>
+                <p>Name: {browserInfoAndroidCNEPWebview.browserName}</p>
+                <p>Platform: {browserInfoAndroidCNEPWebview.platform}</p>
+                <p>Device: {browserInfoAndroidCNEPWebview.device}</p>
+
+                <h2>Browser Info signin webview</h2>
+                <p>Name: {browserInfoAndroidSignInWebview.browserName}</p>
+                <p>Platform: {browserInfoAndroidSignInWebview.platform}</p>
+                <p>Device: {browserInfoAndroidSignInWebview.device}</p>
+
+                <h2>Browser Info webview</h2>
+                <p>Name: {browserInfoiOSebview.browserName}</p>
+                <p>Platform: {browserInfoiOSebview.platform}</p>
+                <p>Device: {browserInfoiOSebview.device}</p>
+
                 <a
                     className="App-link"
                     href={`https://liangda-android-play.herokuapp.com/mshop?version=1&account_pool=foo&browser=chrome&identity_sso_code_challenge=ABCDEFG&return_url=https%3A%2F%2Fwww.amazon.com&application_name=apay&application_context=purchase&language=en_US&merchant_id=XYZ&client_id=abc&consent_ui=Consent&signin_url=https%3A%2F%2Fwww.amazon.com%2Fsignin`}
